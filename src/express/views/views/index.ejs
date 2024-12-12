@@ -1,8 +1,15 @@
 <html>
     <head>
         <Title>Homepage</Title>
+        <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
-        <%- include('navbar', {links: links }) %>
+        <%- include('navbar', { links: links }) %>
+        <hr>
+        <ul>
+            <% users.forEach((user) => { %>
+                <%- include('users/user', { user:user });%>
+            <% }); %>
+        </ul>
     </body>
 </html>
