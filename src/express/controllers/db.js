@@ -4,8 +4,18 @@ const authors = [
     { id: 3, name: "Jason"},
 ];
 
+const books = [
+    { id: 1, name: "The Bible"},
+    { id: 2, name: "The Qu'ran"},
+    { id: 3, name: "The Torah"},
+];
+
 async function getAuthorById(authorId) {
     return authors.find(author => author.id === authorId);
 };
 
-module.exports = { getAuthorById };
+async function getBookById(bookId) {
+    return books.find(book => book.id === bookId);
+};
+
+module.exports = { getAuthorById, getBookById };

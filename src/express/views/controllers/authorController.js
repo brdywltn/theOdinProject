@@ -1,6 +1,6 @@
 const db = require("../db");
 const asyncHandler = require('express-async-handler');
-const CustomErrorNotFoundError = require('../../errors/CustomErrorNotFoundError');
+const CustomErrorNotFoundError = require('../errors/CustomNotFoundError');
 
 const getAuthorById = asyncHandler(async (req, res) => {
     const { authorId } = req.params;

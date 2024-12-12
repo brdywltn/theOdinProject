@@ -1,7 +1,6 @@
 const db = require("../db");
 const asyncHandler = require("express-async-handler");
-const CustomErrorNotFoundError = require("../../errors/CustomErrorNotFoundError");
-const {CustomNotFoundError} = require("../errors/CustomNotFoundError");
+const CustomErrorNotFoundError = require('../errors/CustomNotFoundError');
 
 const getBookById = asyncHandler(async(req, res) => {
    const { bookId } = req.params;

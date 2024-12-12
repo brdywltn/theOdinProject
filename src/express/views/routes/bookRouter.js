@@ -9,4 +9,4 @@ bookRouter.get("/:bookId", (req, res) =>  {
     res.send(`Book ID: ${bookId}`);
 });
 
-module.exports = { bookRouter };
+module.exports = bookRouter;
