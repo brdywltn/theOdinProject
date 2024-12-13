@@ -63,7 +63,12 @@ exports.usersUpdatePost = [
             });
         }
         const { firstName, lastName } = req.body;
-        usersStorage.updateUser(req.params.id,{ firstName, lastName });
+        usersStorage.updateUser(req.params.id, { firstName, lastName });
         res.redirect("/");
     }
 ];
+
+exports.usersDeletePost = (req, res) => {
+    usersStorage.deleteUser(req.params.id);
+    res.redirect("/");
+};
