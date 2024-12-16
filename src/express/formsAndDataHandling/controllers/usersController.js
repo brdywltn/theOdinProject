@@ -1,5 +1,6 @@
 const usersStorage = require('../storages/usersStorage');
 const { body, validationResult } = require('express-validator');
+const {type} = require("node:os");
 
 const alphaErr = "must only contain letters.";
 const lengthErr = "must be between 1 and 10 characters.";
@@ -40,6 +41,15 @@ exports.usersCreatePost = [
     }
 ]
 
+exports.usersSearchGet = (req, res) => {
+    let firstName = req.query.firstName;
+    let user = usersStorage.getUserByName(firstName);
+    res.render("searchUser", {
+        title: "Searched User",
+        user: user,
+    });
+}
+
 exports.usersListGet = (req, res) => {
     res.render("index", {
         title: "Users List",
@@ -73,8 +83,8 @@ exports.usersUpdatePost = [
                 errors: errors.array(),
             });
         }
-        const { firstName, lastName } = req.body;
-        usersStorage.updateUser(req.params.id, { firstName, lastName });
+        const { firstName, lastName, email, age, bio } = req.body;
+        usersStorage.updateUser(req.params.id, { firstName, lastName, email, age, bio });
         res.redirect("/");
     }
 ];
@@ -83,3 +93,4 @@ exports.usersDeletePost = (req, res) => {
     usersStorage.deleteUser(req.params.id);
     res.redirect("/");
 };
+

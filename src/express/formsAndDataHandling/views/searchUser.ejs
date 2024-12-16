@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+</head>
+<body>
+<h1><%= title %></h1>
+<ul>
+    <% if (locals.user) {%>
+        <li>ID: <%= user.id %>, Name: <%= user.firstName %> <%= user.lastName %>, Email: <%= user.email %>, Age: <%= user.age %>, Bio: <%= user.bio %></li>
+    <% } %>
+</ul>
+</body>
+</html>
